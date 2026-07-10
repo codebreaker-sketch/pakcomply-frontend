@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+
+  html, body, #root {
+    height: 100%;
+    background-color: #F8FAFC;
+    color: #0F172A;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::-webkit-scrollbar       { width: 4px; }
+  ::-webkit-scrollbar-track { background: #F8FAFC; }
+  ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 4px; }
+}
+
+@layer components {
+  .nav-item {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-lg text-secondary text-sm font-medium
+           transition-all duration-150 cursor-pointer;
+  }
+  .nav-item:hover { @apply bg-elevated text-primary; }
+  .nav-item.active { @apply bg-accent/15 text-accent-light; }
+
+  .card {
+    @apply bg-surface border border-border rounded-xl p-5;
+  }
+
+  .btn-primary {
+    @apply bg-accent hover:bg-accent-dim text-white text-sm font-medium
+           px-4 py-2 rounded-lg transition-colors duration-150
+           disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2;
+  }
+
+  .btn-ghost {
+    @apply text-secondary hover:text-primary hover:bg-elevated
+           text-sm font-medium px-4 py-2 rounded-lg transition-colors duration-150
+           flex items-center gap-2;
+  }
+
+  .input {
+    @apply w-full bg-elevated border border-border text-primary text-sm
+           rounded-lg px-3 py-2.5 outline-none placeholder:text-muted
+           focus:border-accent focus:ring-1 focus:ring-accent/30
+           transition-colors duration-150;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 text-xs font-medium px-2 py-0.5 rounded-full;
+  }
+
+  .badge-uploaded  { @apply bg-muted/20 text-secondary; }
+  .badge-processing{ @apply bg-warning/15 text-warning; }
+  .badge-processed { @apply bg-success/15 text-success; }
+  .badge-failed    { @apply bg-danger/15 text-danger; }
+
+  .table-row {
+    @apply border-b border-border hover:bg-elevated/50 transition-colors duration-100;
+  }
+}
